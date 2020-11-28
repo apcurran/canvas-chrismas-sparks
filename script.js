@@ -91,7 +91,7 @@ function animate() {
 
     ctx.fillStyle = "rgba(0,0,0, .05)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
+
     for (let i = 0; i < particles.length; i++) {
         // Remove particle if its alpha val is less than 0.
         if (particles[i].alpha < 0) {
