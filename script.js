@@ -1,7 +1,7 @@
 "use strict";
 
 /** @type {HTMLCanvasElement} */
-const canvas = HTMLCanvasElement.prototype.transferControlToOffscreen ? document.querySelector(".canvas").transferControlToOffscreen() : document.querySelector(".canvas");
+const canvas = document.querySelector(".canvas");
 const ctx = canvas.getContext("2d", { alpha: false });
 
 const mouse = {
