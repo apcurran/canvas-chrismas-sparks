@@ -14,14 +14,14 @@ const FRICTION = 0.99;
 // Helper functions
 function createCachedCanvases() {
     // Pre-compute particles
-    const cachedCanvas1 = OffscreenCanvas ? new OffscreenCanvas(10, 10) : document.createElement("canvas");
+    const cachedCanvas1 = typeof OffscreenCanvas !== "undefined" ? new OffscreenCanvas(10, 10) : document.createElement("canvas");
     const cachedCanvasCtx1 = cachedCanvas1.getContext("2d");
     cachedCanvasCtx1.fillStyle = "#dc2626";
     cachedCanvasCtx1.beginPath();
     cachedCanvasCtx1.arc(5, 5, 3, 0, 2 * Math.PI, true);
     cachedCanvasCtx1.fill();
     
-    const cachedCanvas2 = OffscreenCanvas ? new OffscreenCanvas(10, 10) : document.createElement("canvas");
+    const cachedCanvas2 = typeof OffscreenCanvas !== "undefined" ? new OffscreenCanvas(10, 10) : document.createElement("canvas");
     const cachedCanvasCtx2 = cachedCanvas2.getContext("2d");
     cachedCanvasCtx2.fillStyle = "#16a34a";
     cachedCanvasCtx2.beginPath();
