@@ -47,7 +47,6 @@ class Particle {
         this.x = x;
         this.y = y;
         this.selectedCachedCanvas = selectedCachedCanvas;
-        // this.velocity = velocity;
         this.velocityX = velocityX;
         this.velocityY = velocityY;
         this.alpha = 1;
