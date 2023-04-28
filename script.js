@@ -92,8 +92,6 @@ function init() {
 
 // Animation Loop
 function animate() {
-    requestAnimationFrame(animate);
-
     ctx.fillStyle = "rgba(0,0,0, .05)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -106,6 +104,8 @@ function animate() {
             particles[i].update();
         }
     }
+
+    requestAnimationFrame(animate);
 }
 
 init();
