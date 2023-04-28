@@ -52,8 +52,6 @@ class Particle {
     }
     
     update() {
-        this.draw();
-        
         // Multiply x and y velocities by friction
         this.velocity.x *= FRICTION;
         this.velocity.y *= FRICTION;
@@ -64,7 +62,6 @@ class Particle {
         this.y += this.velocity.y;
         // Reduce alpha value continuously
         this.alpha -= 0.005;
-        
     }
 }
 
@@ -97,6 +94,7 @@ function animate() {
         if (particles[i].alpha < 0) {
             particles.splice(i, 1);
         } else {
+            particles[i].draw();
             particles[i].update();
         }
     }
