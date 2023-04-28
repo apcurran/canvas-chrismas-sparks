@@ -36,11 +36,20 @@ function randomIntFromRange(min, max) {
 }
 
 class Particle {
-    constructor(x, y, selectedCachedCanvas, velocity) {
+    /**
+     * @param {number} x 
+     * @param {number} y 
+     * @param {HTMLCanvasElement|OffscreenCanvas} selectedCachedCanvas 
+     * @param {number} velocityX 
+     * @param {number} velocityY 
+     */
+    constructor(x, y, selectedCachedCanvas, velocityX, velocityY) {
         this.x = x;
         this.y = y;
         this.selectedCachedCanvas = selectedCachedCanvas;
-        this.velocity = velocity;
+        // this.velocity = velocity;
+        this.velocityX = velocityX;
+        this.velocityY = velocityY;
         this.alpha = 1;
     }
     
@@ -53,13 +62,13 @@ class Particle {
     
     update() {
         // Multiply x and y velocities by friction
-        this.velocity.x *= FRICTION;
-        this.velocity.y *= FRICTION;
+        this.velocityX *= FRICTION;
+        this.velocityY *= FRICTION;
         // Add gravity to y velocity
-        this.velocity.y += GRAVITY;
+        this.velocityY += GRAVITY;
         // Update x and y positions
-        this.x += this.velocity.x;
-        this.y += this.velocity.y;
+        this.x += this.velocityX;
+        this.y += this.velocityY;
         // Reduce alpha value continuously
         this.alpha -= 0.005;
     }
@@ -113,10 +122,8 @@ document.addEventListener("click", (event) => {
             mouse.x,
             mouse.y,
             cachedCanvasesArr[randomIntFromRange(0, 1)],
-            {
-                x: Math.cos(angleIncrement * i) * Math.random() * POWER,
-                y: Math.sin(angleIncrement * i) * Math.random() * POWER
-            }
+            Math.cos(angleIncrement * i) * Math.random() * POWER,
+            Math.sin(angleIncrement * i) * Math.random() * POWER
         ));
     }
 });
